@@ -2,7 +2,7 @@
     require_once __DIR__ . '/../lib/AccountType.php';
     require_once __DIR__ . '/../lib/ContractType.php';
     class Utils{
-        static function accountToEnum($accountType): AccountType
+        static function accountToEnum(string $accountType): AccountType
         {
             return match($accountType) {
                 "Compte courant" => AccountType::compteCourant ,
@@ -10,7 +10,7 @@
             };
         }
 
-        static function contractToEnum($contractType): ContractType
+        static function contractToEnum(string $contractType): ContractType
         {
             return match($contractType) {
                 "Assurance vie" => ContractType::assuranceVie ,

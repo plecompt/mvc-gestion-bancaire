@@ -17,6 +17,7 @@ $accountId = $_GET['accountId'] ?? null;
 $contractId = $_GET['contractId'] ?? null;
 $userId = $_GET['usersId'] ?? null;
 
+
 switch ($action) {
     case 'login':
         $adminController->logIn(); // logIn

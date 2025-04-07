@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../models/repositories/AccountRepository.php';
-require_once __DIR__ . '/../utils/utils.php';
+require_once __DIR__ . '/../lib/utils.php';
 
 class AccountController
 {

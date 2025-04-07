@@ -15,22 +15,23 @@ class AccountRepository
     public function getAccount(int $accountId): ?Account
     {
         $statement = $this->connection->getConnection()->prepare("SELECT * FROM `Account` WHERE account_id=:accountId");
-        $statement->execute(['account_id' => $accountId]);
+        $statement->execute(['accountId' => $accountId]);
         $result = $statement->fetch();
 
         if (!$result) {
             return null;
         }
 
-        $account = new Account($result['_user_id'], $result['account_id'], $result['account_iban'], $result['account_balance'], $result['account_type']);
+        $account = new Account($result['user_id'], $result['account_id'], $result['account_iban'], $result['account_balance'], $result['account_type']);
 
         return $account;
     }
 
-    public function getAccounts(int $userId): ?array
+    public function getAccounts(?int $userId = null): ?array
     {
+        echo  "HERE|" . $userId . "|";
         if ($userId !== null) {
-            $statement = $this->connection->getConnection()->prepare('SELECT * FROM `Account` WHERE account_id = :userId');
+            $statement = $this->connection->getConnection()->prepare('SELECT * FROM `Account` WHERE user_id = :userId');
             $statement->execute([':userId' => $userId]);
         } else {
             $statement = $this->connection->getConnection()->query('SELECT * FROM `Account`');
@@ -39,9 +40,10 @@ class AccountRepository
         $result = $statement->fetchAll();
         $accounts = [];
         foreach ($result as $row) {
-            $account = new Account($row['_user_id'], $row['account_id'], $row['account_iban'], $row['account_balance'], $row['account_type']);
+            $account = new Account($row['user_id'], $row['account_id'], $row['account_iban'], $row['account_balance'], $row['account_type']);
             $accounts[] = $account;
         }
+
         return $accounts;
     }
 
@@ -49,13 +51,13 @@ class AccountRepository
     {
         $statement = $this->connection
             ->getConnection()
-            ->prepare('INSERT INTO `Account` (account_iban, account_type, account_balance, clientId) VALUES (:iban, :type, :balance, :clientId);');
+            ->prepare('INSERT INTO `Account` (account_iban, account_type, account_balance, user_id) VALUES (:iban, :type, :balance, :userId);');
 
         return $statement->execute([
             'iban' => $account->getIban(),
             'type' => $account->getAccountType(),
             'balance' => $account->getBalance(),
-            'clientId' => $account->getUserId()
+            'userId' => $account->getUserId()
         ]);
     }
 
@@ -68,8 +70,8 @@ class AccountRepository
         return $statement->execute([
             'account_id' => $account->getId(),
             'account_iban' => $account->getIban(),
-            'client_type' => $account->getAccountType(),
-            'client_balance' => $account->getBalance()
+            'account_type' => $account->getAccountType(),
+            'account_balance' => $account->getBalance()
         ]);
     }
 
@@ -82,5 +84,4 @@ class AccountRepository
 
         return $statement->execute();
     }
-
 }
