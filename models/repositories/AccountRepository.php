@@ -61,7 +61,7 @@ class AccountRepository
         ]);
     }
 
-    public function update(Account $account): bool
+    public function saveEdit(Account $account): bool
     {
         $statement = $this->connection
             ->getConnection()

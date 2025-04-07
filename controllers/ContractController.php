@@ -11,53 +11,66 @@ class ContractController
     {
         $this->contractRepository = new ContractRepository();
     }
-    public function show(int $accountId) 
+    
+    public function show(int $contractId) 
     {
-        $account = $this->contractRepository->getContract($accountId);
-        require_once __DIR__ . '/../views/account/contract-view.php';
+        $contract = $this->contractRepository->getContract($contractId);
+        require_once __DIR__ . '/../views/contract/contract-view.php';
     }
 
     public function showFor(?int $userId = null)
     {
-        $account = $this->contractRepository->getContracts($userId);
-        require_once __DIR__ . '/../views/account/contract-list.php';
+        $contracts = $this->contractRepository->getContracts($userId);
+        require_once __DIR__ . '/../views/contract/contract-list.php';
     }
 
     public function create()
     {
-        require_once __DIR__ . "/../views/account/contract-create.php";
+        require_once __DIR__ . "/../views/contract/contract-create.php";
     }
 
     public function saveCreate()
     {
         if(isset($_POST['userId']) && is_numeric($_POST['userId'])){
-            $account = new Contract($_POST['userId'], null, $_POST['iban'], intval($_POST['balance']), $_POST['type']);
-            $this->contractRepository->saveCreate($account);
+            $contract = new Contract(
+                $_POST['userId'], 
+                null, 
+                $_POST['type'], 
+                floatval($_POST['cost']), 
+                intval($_POST['duration'])
+            );
+            $this->contractRepository->saveCreate($contract);
         } else {
             header('Location: ?action=404');
-            return ;
+            return;
         }
 
         header('Location: ?action=contract-showFor');
     }
 
-    public function edit(int $accountId)
+    public function edit(int $contractId)
     {
-        $account = $this->contractRepository->getContract($accountId);
-        require_once __DIR__ . '/../views/account/contract-edit.php';
+        $contract = $this->contractRepository->getContract($contractId);
+        require_once __DIR__ . '/../views/contract/contract-edit.php';
     }
 
     public function saveEdit()
     {   
-        $account = new Contract(userId: $_POST['clientId'], id: $_POST['id'], iban: $_POST['iban'], balance: $_POST['balance'], accountType: $_POST['type']);
-        $this->contractRepository->update($account);
+        $contract = new Contract(
+            userId: $_POST['userId'], 
+            id: $_POST['id'], 
+            type: $_POST['type'], 
+            cost: floatval($_POST['cost']), 
+            duration: intval($_POST['duration'])
+        );
+        $this->contractRepository->update($contract);
 
         header('Location: ?action=contract-showFor');
     }
 
-    public function delete(int $accountId)
+    public function delete(int $contractId)
     {
-        $this->contractRepository->delete($accountId);
+        $this->contractRepository->delete($contractId);
 
         header('Location: ?action=contract-showFor');
     }

@@ -50,7 +50,7 @@ class AccountController
     public function saveEdit()
     {   
         $account = new Account(userId: $_POST['clientId'], id: $_POST['id'], iban: $_POST['iban'], balance: $_POST['balance'], accountType: $_POST['type']);
-        $this->accountRepository->update($account);
+        $this->accountRepository->saveEdit($account);
 
         header('Location: ?action=account-showFor');
     }

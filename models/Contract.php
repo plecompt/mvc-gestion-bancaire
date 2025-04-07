@@ -55,9 +55,9 @@
             $this->id = $id;
         }
 
-        public function setContractType(string $contractType): void
+        public function setContractType(string $type): void
         {
-            $this->contractType = Utils::contractToEnum($contractType);
+            $this->contractType = Utils::contractToEnum($type);
         }
 
         public function setCost(float $cost): void
