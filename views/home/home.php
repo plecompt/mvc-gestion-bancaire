@@ -1,4 +1,6 @@
-<?php
-
-    //Vue 3 liens avec nb clients, nb comptes et nb contracts.
-    echo "Home";
+<?php require_once __DIR__ . '/../templates/header.php'; ?>
+    <h1>Home</h1>
+    <?= $totals['userCount'] ?>
+    <?= $totals['accountCount'] ?>
+    <?= $totals['contractCount'] ?>
+<?php require_once __DIR__ . '/../templates/footer.php';

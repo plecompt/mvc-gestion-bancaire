@@ -5,25 +5,27 @@ require_once __DIR__ . '/controllers/ContractController.php';
 require_once __DIR__ . '/controllers/HomeController.php';
 require_once __DIR__ . '/controllers/UserController.php';
 
+session_start();
+
 $accountController = new AccountController();
-// $adminController = new AdminController();
-// $contractController = new ContractController();
-// $homeController = new HomeController();
-// $userController = new UserController();
+$adminController = new AdminController();
+$contractController = new ContractController();
+$homeController = new HomeController();
+$userController = new UserController();
 
 
 $action = $_GET['action'] ?? 'login'; //login par defaut.
 $accountId = $_GET['accountId'] ?? null;
 $contractId = $_GET['contractId'] ?? null;
-$userId = $_GET['usersId'] ?? null;
-
+$userId = $_GET['userId'] ?? null;
+$adminId = $_GET['adminId'] ?? null;
 
 switch ($action) {
     case 'login':
-        $adminController->logIn(); // logIn
+        $adminController->login(); // logIn
         break;
     case 'logout':
-        $adminController->logOut(); // logOut
+        $adminController->logout(); // logOut
         break;
     case 'account-show':
         $accountController->show($accountId); //display the account of given $accountId

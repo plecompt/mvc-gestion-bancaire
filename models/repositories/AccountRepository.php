@@ -29,7 +29,6 @@ class AccountRepository
 
     public function getAccounts(?int $userId = null): ?array
     {
-        echo  "HERE|" . $userId . "|";
         if ($userId !== null) {
             $statement = $this->connection->getConnection()->prepare('SELECT * FROM `Account` WHERE user_id = :userId');
             $statement->execute([':userId' => $userId]);
@@ -45,6 +44,14 @@ class AccountRepository
         }
 
         return $accounts;
+    }
+
+    public function getAccountCount(): int
+    {
+        $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as count FROM `Account`');
+        $result = $statement->fetch();
+        
+        return (int) $result['count'];
     }
 
     public function saveCreate(Account $account): bool

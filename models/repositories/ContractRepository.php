@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../models/Contract.php';
+require_once __DIR__ . '/../Contract.php';
 require_once __DIR__ . '/../../lib/database.php';
 
 class ContractRepository
@@ -58,6 +58,15 @@ class ContractRepository
 
         return $contracts;
     }
+
+    public function getContractCount(): int
+    {
+        $statement = $this->connection->getConnection()->query('SELECT COUNT(*) as count FROM `Contract`');
+        $result = $statement->fetch();
+        
+        return (int) $result['count'];
+    }
+
 
     public function saveCreate(Contract $contract): bool
     {

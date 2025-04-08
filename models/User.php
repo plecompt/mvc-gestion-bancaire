@@ -6,9 +6,9 @@
         private string $lastName;
         private string $email;
         private string $phone;
-        private string $address;
+        private ?string $address;
 
-        public function __construct(int $id = null, string $firstName, string $lastName, string $email, string $phone, string $address){
+        public function __construct(int $id, string $firstName, string $lastName, string $email, string $phone, ?string $address = null){
             $this->setId($id);
             $this->setFirstName($firstName);
             $this->setLastName($lastName);
