@@ -48,8 +48,8 @@ switch ($action) {
     case 'account-saveEdit':
         $accountController->saveEdit(); //save the current edition of account in database
         break;
-    case 'account-delete': //delete the given account
-        $accountController->delete($accountId);
+    case 'account-delete': 
+        $accountController->delete($accountId); //delete the given account
         break;
     case 'contract-show':
         $contractController->show($contractId); //display the contract of given $userId
@@ -69,8 +69,8 @@ switch ($action) {
     case 'contract-saveEdit':
         $contractController->saveEdit(); //save the current edition of contract in database
         break;
-    case 'contract-delete': //delete the given contract
-        $contractController->delete($contractId);
+    case 'contract-delete': 
+        $contractController->delete($contractId); //delete the given contract
         break;
     case 'user-show':
         $userController->show($userId); //display the user of given $userId
@@ -90,8 +90,8 @@ switch ($action) {
     case 'user-saveEdit':
         $userController->saveEdit(); //save the current edition of user in database
         break;
-    case 'user-delete': //delete the given user
-        $userController->delete($userId);
+    case 'user-delete': 
+        $userController->delete($userId); //delete the given user
         break;
     case 'home':
         $homeController->home(); // when connected, go to home, else go to login

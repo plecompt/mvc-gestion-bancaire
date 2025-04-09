@@ -14,9 +14,7 @@ class UserController
     
     public function show(int $userId) 
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $user = $this->userRepository->getUser($userId);
         require_once __DIR__ . '/../views/user/user-view.php';
@@ -24,9 +22,7 @@ class UserController
 
     public function showAll()
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $users = $this->userRepository->getUsers();
         require_once __DIR__ . '/../views/user/user-list.php';
@@ -34,21 +30,17 @@ class UserController
 
     public function create()
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         require_once __DIR__ . "/../views/user/user-create.php";
     }
 
     public function saveCreate()
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $user = new User(
-            id: $_POST['id'],
+            id: 0,
             firstName: $_POST['firstName'], 
             lastName: $_POST['lastName'], 
             email: $_POST['email'], 
@@ -62,9 +54,7 @@ class UserController
 
     public function edit(int $userId)
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $user = $this->userRepository->getUser($userId);
         require_once __DIR__ . '/../views/user/user-edit.php';
@@ -72,12 +62,10 @@ class UserController
 
     public function saveEdit()
     {   
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $user = new User(
-            id: $_POST['id'],
+            id: $_SESSION['userId'],
             firstName: $_POST['firstName'], 
             lastName: $_POST['lastName'], 
             email: $_POST['email'], 
@@ -91,9 +79,7 @@ class UserController
 
     public function delete(int $userId)
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
+        Utils::checkAdmin("Location: ?action=404");
 
         $this->userRepository->delete($userId);
 

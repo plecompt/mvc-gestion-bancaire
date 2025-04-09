@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/../lib/AccountType.php';
-require_once __DIR__ . '/../lib/ContractType.php';
+require_once __DIR__ . '/AccountType.php';
+require_once __DIR__ . '/ContractType.php';
 class Utils
 {
     static function accountToEnum(string $accountType): AccountType
@@ -36,6 +36,12 @@ class Utils
             return false;
         }
         return true;
+    }
+
+    static function checkAdmin(string $redirection){
+        if (!(Utils::isConnected())) {
+            header($redirection);
+        }
     }
 }
 ?>

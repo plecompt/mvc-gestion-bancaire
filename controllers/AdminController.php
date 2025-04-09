@@ -23,11 +23,12 @@ class AdminController
 
         $admin = $this->adminRepository->getAdminByEmail($email);
 
-        if (password_verify($password, $admin->getPassword())) {
+        if (isset($admin) && password_verify($password,$admin->getPassword())) {
             $_SESSION['adminId'] = $admin->getId();
             header('Location: ?action=home');
             exit;
         } else {
+            $_SESSION['errorMessage'] = "Mot de passe incorrect";
             header('Location: ?action=error');
             exit;
         }
@@ -35,7 +36,8 @@ class AdminController
 
     public function logout()
     {
-        unset($_SESSION['adminId']);
+        unset($_SESSION['adminId'], $_SESSION['userId'], $_SESSION['accountId'], $_SESSION['clientId']);
+        session_destroy();
         header('Location: ?');
         exit;
     }

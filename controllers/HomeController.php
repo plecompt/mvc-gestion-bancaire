@@ -13,10 +13,6 @@ class HomeController
     }
     public function home()
     {
-        if(!Utils::isAdmin()){
-            header('Location: ?action=404');
-        }
-
         if (Utils::isAdmin()){
             $totals = $this->homeRepository->getTotals();
             require __DIR__ . '/../views/home/home.php';

@@ -19,7 +19,7 @@
             $this->setDuration($duration);
         }
 
-        public function getuserId(): int
+        public function getUserId(): int
         {
             return $this->userId;
         }
@@ -57,7 +57,7 @@
 
         public function setContractType(string $type): void
         {
-            $this->contractType = Utils::contractToEnum($type);
+            $this->type = Utils::contractToEnum($type);
         }
 
         public function setCost(float $cost): void

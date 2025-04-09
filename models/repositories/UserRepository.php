@@ -28,7 +28,7 @@ class UserRepository
             $result['user_lastName'],
             $result['user_email'],
             $result['user_phone'],
-            $result['address']
+            $result['user_address']
         );
 
         return $user;

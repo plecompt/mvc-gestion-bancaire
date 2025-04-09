@@ -10,7 +10,6 @@
                     <h3 class="stat-title">Utilisateurs:</h3>
                     <div class="stat-value"><?= $totals['userCount'] ?></div>
                 </div>
-                <img src="assets/img/users.jpg" alt="Utilisateurs" class="bg-img">
             </div>
 
             <!-- Statistiques Comptes -->
@@ -19,7 +18,6 @@
                     <h3 class="stat-title">Comptes:</h3>
                     <div class="stat-value"><?= $totals['accountCount'] ?></div>
                 </div>
-                <img src="assets/img/accounts.jpg" alt="Comptes" class="bg-img">
             </div>
 
             <!-- Statistiques Contrats -->
@@ -28,7 +26,6 @@
                     <h3 class="stat-title">Contrats:</h3>
                     <div class="stat-value"><?= $totals['contractCount'] ?></div>
                 </div>
-                <img src="assets/img/contracts.jpg" alt="Contrats" class="bg-img">
             </div>
         </div>
     </div>

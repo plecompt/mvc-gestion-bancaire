@@ -29,6 +29,9 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 5vh;
+
 }
 
 a {
@@ -75,7 +78,45 @@ input, textarea, select {
     font-family: 'Courier New', monospace;
 }
 
-/* Header et navigation */
+/* Views */
+
+.user-container, .contract-container, .account-container {
+    display: flex; 
+    align-items: left;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form > div {
+    display: grid;
+    grid-template-columns: 150px auto;
+    align-items: center;
+  }
+  
+  label {
+    text-align: left;
+    padding-right: 10px;
+  }
+
+/* Tables */
+
+table {
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 10px 8px;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+/* Header et nav */
+#neo {
+    width: 80%;
+}
+
 header {
     border-bottom: 1px solid var(--dark-green);
 }
@@ -88,7 +129,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -159,21 +200,23 @@ header {
 }
 
 /* Footer */
-.footer {
-    margin-top: 40px;
-    padding: 20px 0;
+footer {
+    width: 100%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
     text-align: center;
+    width: 100%;
 }
 
 .footer-divider {
     border-top: 1px solid var(--dark-green);
-    margin-bottom: 15px;
+    width: 100%;
 }
 
 .footer-text {
@@ -255,48 +298,7 @@ header {
     text-shadow: 0 0 15px var(--green);
 }
 
-/* Responsive */
+/* Media Querry */
 @media (max-width: 768px) {
-    .stats-container {
-        flex-direction: column;
-    }
-    
-    .stat-card {
-        width: 100%;
-    }
 
-    .menu-toggle {
-        display: block;
-    }
-    
-    .nav-menu {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background-color: var(--black);
-        border-bottom: 1px solid var(--dark-green);
-        flex-direction: column;
-        padding: 20px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .nav-list {
-        flex-direction: column;
-        margin-right: 0;
-        margin-bottom: 20px;
-    }
-    
-    .nav-item {
-        margin: 10px 0;
-    }
 }
