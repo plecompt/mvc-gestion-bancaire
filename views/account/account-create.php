@@ -1,8 +1,7 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Créer un compte</h1>
-
     <form action="?action=account-saveCreate" method="POST" id="account-saveCreate">
         <div>
         <label for="userId" class="form-label">ID Utilisateur: </label>

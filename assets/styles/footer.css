@@ -1,0 +1,16 @@
+/* Footer */
+footer {
+    width: 100%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+.footer-divider {
+    border-top: 1px solid var(--dark-green);
+    width: 100%;
+}
+
+.footer-text {
+    color: var(--green);
+    margin: 0;
+}

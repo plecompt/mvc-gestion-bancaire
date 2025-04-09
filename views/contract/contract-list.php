@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main>
+<main class="flex-center">
     <h1>Liste des contrats</h1>
         <table>
             <thead>

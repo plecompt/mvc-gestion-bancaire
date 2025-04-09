@@ -1,9 +1,8 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Créer un utilisateur</h1>
-
-    <form action="?action=user-saveCreate" method="POST" id="user-saveCreate">
+    <form action="?action=user-saveCreate" method="POST" id="user-saveCreate" class="flex-center">
         <div>
             <label for="lastName" class="form-label">Nom: </label>
             <input type="text" class="form-control" id="lastName" name="lastName" required>

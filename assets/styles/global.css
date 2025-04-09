@@ -1,0 +1,85 @@
+/* Init */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+:root {
+    --green: #00ff00;
+    --dark-green: #008f11;
+    --black: #000000;
+    --text: #ccffcc;
+}
+
+.flex-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.flex-left{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    gap: 15px;
+}
+
+/*Links and buttons */
+a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--green);
+}
+
+button, .btn-neon {
+    background-color: transparent;
+    color: var(--green);
+    text-shadow: 0 0 5px var(--green);
+    border: 1px solid var(--green);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+button:hover, .btn-neon:hover {
+    background-color: var(--dark-green);
+    color: var(--black);
+    box-shadow: 0 0 8px var(--green);
+}
+
+/* Forms */
+input, textarea, select {
+    background-color: rgba(0, 20, 0, 0.3);
+    border: 1px solid var(--dark-green);
+    color: var(--text);
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* Tables */
+table {
+    width: 70%;
+    border-collapse: separate;
+    border-spacing: 10px 8px;
+}
+
+th, td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 8px;
+}
+
+/* Media Query */
+@media (max-width: 750px) {
+
+}

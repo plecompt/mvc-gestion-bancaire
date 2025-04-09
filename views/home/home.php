@@ -1,28 +1,22 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
-<main>
+<main class="flex-center">
     <div class="dashboard">
         <h1 class="title">Tableau de bord</h1>
-
-        <div class="stats-container">
-            <!-- Statistiques Utilisateurs -->
+        <div class="stats-container flex-center">
             <div class="stat-card">
-                <div class="overlay">
+                <div class="overlay flex-center">
                     <h3 class="stat-title">Utilisateurs:</h3>
                     <div class="stat-value"><?= $totals['userCount'] ?></div>
                 </div>
             </div>
-
-            <!-- Statistiques Comptes -->
             <div class="stat-card">
-                <div class="overlay">
+                <div class="overlay flex-center">
                     <h3 class="stat-title">Comptes:</h3>
                     <div class="stat-value"><?= $totals['accountCount'] ?></div>
                 </div>
             </div>
-
-            <!-- Statistiques Contrats -->
             <div class="stat-card">
-                <div class="overlay">
+                <div class="overlay flex-center">
                     <h3 class="stat-title">Contrats:</h3>
                     <div class="stat-value"><?= $totals['contractCount'] ?></div>
                 </div>

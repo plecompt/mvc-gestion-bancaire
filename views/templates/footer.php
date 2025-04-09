@@ -1,6 +1,6 @@
 <footer>
-    <div class="footer-content">
+    <div class="footer-content flex-center">
         <div class="footer-divider"></div>
-        <p class="footer-text">Gestionnaire Bancaire</p>
+        <p class="footer-text">@BankManager</p>
     </div>
 </footer>

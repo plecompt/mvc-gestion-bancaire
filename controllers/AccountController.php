@@ -31,7 +31,7 @@ class AccountController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        //need to be redone
+        //it's dirty
         $userRepo = new UserRepository();
         $users = $userRepo->getUsers();
 
@@ -71,7 +71,13 @@ class AccountController
     {   
         Utils::checkAdmin("Location: ?action=404");
 
-        $account = new Account(userId: $_POST['clientId'], id: $_POST['id'], iban: $_POST['iban'], balance: $_POST['balance'], accountType: $_POST['type']);
+        $account = new Account(
+            $_SESSION['userId'], 
+            $_SESSION['accountId'], 
+            $_POST['iban'],
+            $_POST['balance'],
+            $_POST['type']
+        );
         $this->accountRepository->saveEdit($account);
 
         header('Location: ?action=account-showFor');

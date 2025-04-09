@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Créer un contrat</h1>
 
     <form action="?action=contract-saveCreate" method="POST" id="contract-saveCreate">
@@ -11,7 +11,6 @@
                     <option value="<?php $_SESSION['userId'] = $user->getId();?>"><?php echo $user->getId() . " : " . $user->getFirstName();?></option>                        
                 <?php endforeach; ?>
             </select>
-
         </div><br>
         <div>
             <label for="duration" class="form-label">Durée du contrat: </label>

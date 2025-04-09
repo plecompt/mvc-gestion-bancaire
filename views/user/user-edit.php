@@ -1,9 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Modifier un utilisateur</h1>
 
-    <form action="?action=user-saveEdit" method="POST" id="user-saveEdit">
+    <form action="?action=user-saveEdit" method="POST" id="user-saveEdit" class="flex-center">
         <?php $_SESSION['userId'] = $user->getId(); ?>
         <div>
             <label for="id" class="form-label">ID: </label>

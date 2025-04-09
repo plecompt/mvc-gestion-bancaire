@@ -33,7 +33,7 @@ class ContractController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        //need to be redone
+        //it's dirty...
         $userRepo = new UserRepository();
         $users = $userRepo->getUsers();
 
@@ -76,9 +76,9 @@ class ContractController
         $contract = new Contract(
             $_SESSION['userId'], 
             $_SESSION['contractId'], 
-            type: $_POST['type'], 
-            cost: floatval($_POST['cost']), 
-            duration: intval($_POST['duration'])
+            $_POST['type'], 
+            floatval($_POST['cost']), 
+            intval($_POST['duration'])
         );
         $this->contractRepository->update($contract);
 

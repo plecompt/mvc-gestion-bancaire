@@ -1,10 +1,8 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-
-<main style="display: flex; flex-direction: column; gap: 5vh;">
+<main class="flex-center user-view">
     <h1>Détail de l'utilisateur</h1>
-
-    <div class="user-container">
+    <div class="flex-left">
         <p><strong>ID : </strong> <?= $user->getId() ?></p>
         <p><strong>Nom : </strong> <?= $user->getLastName() ?></p>
         <p><strong>Prénom : </strong> <?= $user->getFirstName() ?></p>
@@ -12,7 +10,7 @@
         <p><strong>Numéro de téléphone : </strong> <?= $user->getPhone() ?></p>
         <p><strong>Adresse : </strong> <?= $user->getAddress() ?></p>
     </div>
-    <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+    <div class="flex-center">
     <a href="?action=contract-showFor&userId=<?= $user->getId() ?>">Afficher la liste des contrats du client</a>
     <a href="?action=account-showFor&userId=<?= $user->getId() ?>">Afficher la liste des comptes du client</a>
     <a href="?action=user-edit&userId=<?= $user->getId() ?>">Modifier l'utilisateur</a>

@@ -1,8 +1,7 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Modifier un compte</h1>
-
     <form action="?action=account-saveEdit" method="POST" id="account-saveEdit">
         <?php $_SESSION['userId'] = $account->getUserId(); ?>
         <?php $_SESSION['accountId'] = $account->getId(); ?>

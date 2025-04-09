@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main style="display: flex; flex-direction: column; gap: 3vh;">
+<main class="flex-center">
     <h1>Modifier un contrat</h1>
 
     <form action="?action=contract-saveEdit" method="POST" id="contract-saveEdit">

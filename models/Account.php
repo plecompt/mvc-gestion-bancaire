@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../lib/AccountType.php';
+    require_once __DIR__ . '/enums/AccountTypeEnum.php';
     require_once __DIR__ . '/../lib/utils.php';
 
     class Account
@@ -10,7 +10,7 @@
         private float $balance;
         private AccountType $accountType;
 
-        public function __construct(int $userId = null, int $id = null, string $iban, int $balance, string $accountType){
+        public function __construct(int $userId = null, int $id = null, string|AccountType $iban, int $balance, string $accountType){
             $this->setUserId($userId);
             $this->setId($id);
             $this->setIban($iban);
@@ -63,8 +63,12 @@
             $this->balance = $balance;
         }
 
-        public function setAccountType(string $accountType): void
+        public function setAccountType(string|AccountType $accountType): void
         {
-            $this->accountType = Utils::accountToEnum($accountType);
+            if (is_string($accountType)) {
+                $this->accountType = AccountType::toEnum($accountType);
+            } else {
+                $this->accountType = $contractType;
+            }
         }
     }

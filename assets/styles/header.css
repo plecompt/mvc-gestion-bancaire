@@ -1,0 +1,52 @@
+/* Header et nav */
+#neo {
+    width: 80%;
+}
+
+header {
+    border-bottom: 1px solid var(--dark-green);
+}
+
+.navbar {
+    padding: 15px 20px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    color: var(--green);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--green);
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.nav-item {
+    margin: 0 10px;
+}
+
+.nav-link {
+    padding: 5px;
+    position: relative;
+}
+
+.nav-link:hover {
+    text-shadow: 0 0 8px var(--green);
+}

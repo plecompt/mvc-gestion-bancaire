@@ -1,6 +1,6 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<main>
+<main class="flex-center">
     <?php if (isset($_SESSION['errorMessage'])):?>
         <h1><?=$_SESSION['errorMessage']; ?></h1>
         <?php unset($_SESSION['errorMessage']); ?>
