@@ -23,10 +23,6 @@ class AdminRepository
             return null;
         }
 
-        $admin = new Admin();
-        $admin->setId($result['id']);
-        $admin->setEmail($result['email']);
-        $admin->setPassword($result['password']);
-        return $admin;
+        return new Admin($result['admin_id'], $result['admin_email'], $result['admin_password']);
     }
 }

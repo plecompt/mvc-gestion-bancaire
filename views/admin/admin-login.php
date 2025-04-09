@@ -1,9 +1,9 @@
 <?php require_once __DIR__ . '/../templates/header.php'; ?>
 
-<form action="?action=doLogin" method="POST">
+<form action="?action=admin-doLogin" method="POST">
     <div class="form-group">
-        <label>Nom d'utilisateur :</label>
-        <input class="form-control" type="text" name="username" required>
+        <label>Adresse email :</label>
+        <input class="form-control" type="text" name="email" required>
     </div>
     <div class="form-group">
         <label>Mot de passe :</label>

@@ -14,17 +14,20 @@ $homeController = new HomeController();
 $userController = new UserController();
 
 
-$action = $_GET['action'] ?? 'login'; //login par defaut.
+$action = $_GET['action'] ?? 'home'; //home by default.
 $accountId = $_GET['accountId'] ?? null;
 $contractId = $_GET['contractId'] ?? null;
 $userId = $_GET['userId'] ?? null;
 $adminId = $_GET['adminId'] ?? null;
 
 switch ($action) {
-    case 'login':
-        $adminController->login(); // logIn
+    case 'admin-login':
+        $adminController->login(); // display the form to log in
         break;
-    case 'logout':
+    case 'admin-doLogin':
+        $adminController->doLogin(); // do the logIn
+        break;
+    case 'admin-logout':
         $adminController->logout(); // logOut
         break;
     case 'account-show':
@@ -91,7 +94,7 @@ switch ($action) {
         $userController->delete($userId);
         break;
     case 'home':
-        $homeController->home(); // when connected, go to home
+        $homeController->home(); // when connected, go to home, else go to login
         break;
     default:
         $homeController->error(); //wrong parameter, show 404

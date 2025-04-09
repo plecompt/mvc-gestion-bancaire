@@ -13,10 +13,17 @@ class HomeController
     }
     public function home()
     {
-        $totals = $this->homeRepository->getTotals();
-        require __DIR__ . '/../views/home/home.php';
-    }
+        if(!Utils::isAdmin()){
+            header('Location: ?action=404');
+        }
 
+        if (Utils::isAdmin()){
+            $totals = $this->homeRepository->getTotals();
+            require __DIR__ . '/../views/home/home.php';
+        } else {
+            require __DIR__ . '/../views/admin/admin-login.php';
+        }
+    }
 
     public function error()
     {

@@ -25,11 +25,10 @@ class AdminController
 
         if (password_verify($password, $admin->getPassword())) {
             $_SESSION['adminId'] = $admin->getId();
-
-            header('Location: ?');
+            header('Location: ?action=home');
             exit;
         } else {
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
+            header('Location: ?action=error');
             exit;
         }
     }
