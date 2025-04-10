@@ -6,6 +6,10 @@
         <?php $_SESSION['userId'] = $account->getUserId(); ?>
         <?php $_SESSION['accountId'] = $account->getId(); ?>
         <div>
+            <label for="user" class="form-label">Utilisateur: </label>
+            <input type="text" class="form-control" id="user" name="user" value="<?= $user->getLastName() . " " . $user->getFirstName() ?>" readonly required>
+        </div><br>
+        <div>
             <label for="userId" class="form-label">ID utilisateur: </label>
             <input type="text" class="form-control" id="userId" name="userId" value="<?= $account->getUserId() ?>" readonly required>
         </div><br>

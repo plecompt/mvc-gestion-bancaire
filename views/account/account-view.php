@@ -4,7 +4,7 @@
     <h1>Détail du compte</h1>
 
     <div class="flex-left">
-        <p><strong>ID utilisateur : </strong> <?= $account->getUserId() ?></p>
+        <p><strong>Utilisateur : </strong> <?= $user->getLastName() . " " . $user->getFirstName() ?></p>
         <p><strong>ID compte : </strong> <?= $account->getId() ?></p>
         <p><strong>IBAN : </strong> <?= $account->getIban() ?></p>
         <p><strong>Solde : </strong> <?= $account->getBalance() ?></p>

@@ -7,7 +7,7 @@
         <label for="userId" class="form-label">ID Utilisateur: </label>
             <select class="form-control" name="userId" id="userId" required>
                 <?php foreach($users as $user): ?>
-                    <option value="<?php $_SESSION['userId'] = $user->getId();?>"><?php echo $user->getId() . " : " . $user->getFirstName();?></option>                        
+                    <option value="<?php $_SESSION['userId'] = $user->getId();?>"><?php echo $user->getId() . " : " . $user->getFirstName() . " " . $user->getLastName();?></option>                        
                 <?php endforeach; ?>
             </select>
         </div><br>

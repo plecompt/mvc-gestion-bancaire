@@ -4,7 +4,7 @@
     <h1>Détail du contrat</h1>
 
     <div class="contract-container flex-left">
-        <p><strong>ID utilisateur : </strong> <?= $contract->getUserId() ?></p>
+        <p><strong>Utilisateur : </strong> <?= $user->getLastName() . " " . $user->getFirstName() ?></p>
         <p><strong>ID contrat : </strong> <?= $contract->getId() ?></p>
         <p><strong>Type de contrat : </strong> <?= $contract->getContractType() ?></p>
         <p><strong>Cout du contrat : </strong> <?= $contract->getCost() ?></p>

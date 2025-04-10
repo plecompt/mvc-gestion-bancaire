@@ -10,7 +10,7 @@
         private float $balance;
         private AccountType $accountType;
 
-        public function __construct(int $userId = null, int $id = null, string|AccountType $iban, int $balance, string $accountType){
+        public function __construct(int $userId = null, int $id = null, string $iban, int $balance, string|AccountType $accountType){
             $this->setUserId($userId);
             $this->setId($id);
             $this->setIban($iban);
@@ -68,7 +68,7 @@
             if (is_string($accountType)) {
                 $this->accountType = AccountType::toEnum($accountType);
             } else {
-                $this->accountType = $contractType;
+                $this->accountType = $accountType;
             }
         }
     }

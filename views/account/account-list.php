@@ -7,6 +7,7 @@
                 <tr>
                     <th>ID utilisateur</th>
                     <th>ID compte</th>
+                    <th>Nom</th>
                     <th>IBAN</th>
                     <th>Solde</th>
                     <th>Type de compte</th>

@@ -25,18 +25,15 @@ class AdminController
 
         if (isset($admin) && password_verify($password,$admin->getPassword())) {
             $_SESSION['adminId'] = $admin->getId();
-            header('Location: ?action=home');
-            exit;
+            header('Location: ?');
         } else {
-            $_SESSION['errorMessage'] = "Mot de passe incorrect";
-            header('Location: ?action=error');
-            exit;
+            Utils::errorHandler('errorMessage', 'Erreur: mot de passe incorrect', 'Location: ?action=error');
         }
     }
 
     public function logout()
     {
-        unset($_SESSION['adminId'], $_SESSION['userId'], $_SESSION['accountId'], $_SESSION['clientId']);
+        unset($_SESSION['adminId'], $_SESSION['userId'], $_SESSION['accountId'], $_SESSION['clientId'], $_SESSION['errorMessage']);
         session_destroy();
         header('Location: ?');
         exit;
