@@ -11,6 +11,7 @@ class HomeController
     {
         $this->homeRepository = new HomeRepository();
     }
+
     public function home()
     {
         if (Utils::isAdmin()){

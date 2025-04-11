@@ -13,7 +13,7 @@
             <input class="form-control" type="password" name="password" placeholder="admin1234" value="admin1234" required>
         </div>
         <div class="form-group">
-            <button type="submit">Se connecter</button>
+            <button class="btn-list" type="submit">Se connecter</button>
         </div>
     </form>
 </main>

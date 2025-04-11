@@ -8,16 +8,23 @@ header {
 }
 
 .navbar {
-    padding: 15px 20px;
+    padding: 20px 20px;
+    flex-direction: row;
+    justify-content:space-between;
 }
 
-.nav-container {
+.navbar-left, .navbar-middle, .navbar-right {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
+    flex: 1;
+    justify-content: center;
+}
+
+.navbar-left{
+    justify-content: left;
+}
+
+.navbar-right{
+    justify-content: right;
 }
 
 .logo {
@@ -25,28 +32,4 @@ header {
     font-weight: bold;
     text-shadow: 0 0 5px var(--green);
     font-size: 1.5rem;
-}
-
-.nav-menu {
-    display: flex;
-    align-items: center;
-}
-
-.nav-list {
-    display: flex;
-    list-style: none;
-    margin-right: 20px;
-}
-
-.nav-item {
-    margin: 0 10px;
-}
-
-.nav-link {
-    padding: 5px;
-    position: relative;
-}
-
-.nav-link:hover {
-    text-shadow: 0 0 8px var(--green);
 }

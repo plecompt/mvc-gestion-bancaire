@@ -1,23 +1,33 @@
 <?php
 
 require_once __DIR__ . '/../models/repositories/UserRepository.php';
+require_once __DIR__ . '/../models/repositories/ContractRepository.php';
+require_once __DIR__ . '/../models/repositories/AccountRepository.php';
 require_once __DIR__ . '/../lib/utils.php';
 
 class UserController
 {
     private UserRepository $userRepository;
+    private ContractRepository $contractRepository;
+    private AccountRepository $accountRepository;
 
     public function __construct()
     {
         $this->userRepository = new UserRepository();
+        $this->contractRepository = new ContractRepository();	
+        $this->accountRepository = new AccountRepository();
     }
     
     public function show($userId) 
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (isset($userId) && is_numeric($userId))
+        if (isset($userId) && is_numeric($userId)){
             $user = $this->userRepository->getUser($userId);
+            $contracts = $this->contractRepository->getContracts($userId);
+            $accounts = $this->accountRepository->getAccounts($userId);
+        }
+
         if (isset($user)) {
             require_once __DIR__ . '/../views/user/user-view.php';
         } else {
@@ -82,12 +92,12 @@ class UserController
         if (Utils::checkValidFirstName($_POST['firstName']) && Utils::checkValidLastName($_POST['lastName']) && 
         Utils::checkValidEmail($_POST['email']) && Utils::checkValidPhone($_POST['phone']) && Utils::checkValidAddress($_POST['address'])){
             $user = new User(
-                id: $_SESSION['userId'],
-                firstName: $_POST['firstName'], 
-                lastName: $_POST['lastName'], 
-                email: $_POST['email'], 
-                phone: $_POST['phone'], 
-                address: $_POST['address']
+                $_SESSION['userId'],
+                $_POST['firstName'], 
+                $_POST['lastName'], 
+                $_POST['email'], 
+                $_POST['phone'], 
+                $_POST['address']
             );
             $this->userRepository->update($user);
             header('Location: ?action=user-showAll');

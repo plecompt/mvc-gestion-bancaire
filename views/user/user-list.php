@@ -11,7 +11,7 @@
                     <th>Email</th>
                     <th>Numéro de téléphone</th>
                     <th>Adresse</th>
-                    <th>Actions<th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-        <a style="font-size:20px;"href="?action=user-create">Créer un utilisateur</a>
+    <a class="btn-list" href="?action=user-create">Créer un utilisateur</a>
 </main>
 
 <?php require_once __DIR__ . '/../templates/footer.php';

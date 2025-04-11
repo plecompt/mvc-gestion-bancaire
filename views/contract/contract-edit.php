@@ -37,9 +37,9 @@
             <input type="text" class="form-control" id="duration" name="duration" value="<?= $contract->getDuration() ?>" required>
         </div><br>
     </form>
-    <a href="" onclick="document.getElementById('contract-saveEdit').submit(); return false;">Modifier le contrat</a>
-    <a onclick="return confirm('Etes vous sur de vouloir supprimer le contrat ?');" href="?action=contract-delete&contractId=<?= $contract->getId() ?>" >Supprimer</a>
-    <a href="?action=contract-showFor">Retour à la liste</a>
+    <a class="btn-list" href="" onclick="document.getElementById('contract-saveEdit').submit(); return false;">Modifier le contrat</a>
+    <a class="btn-list" onclick="return confirm('Etes vous sur de vouloir supprimer le contrat ?');" href="?action=contract-delete&contractId=<?= $contract->getId() ?>" >Supprimer</a>
+    <a class="btn-list" href="?action=contract-showFor">Retour à la liste</a>
 </main>
 
 <?php require_once __DIR__ . '/../templates/footer.php';

@@ -33,9 +33,9 @@
             <input type="text" class="form-control" id="balance" name="balance" value="<?= $account->getBalance() ?>" required>
         </div><br>
     </form>
-    <a href="" onclick="document.getElementById('account-saveEdit').submit(); return false;">Modifier le compte</a>
-    <a onclick="return confirm('Etes vous sur de vouloir supprimer le compte ?');" href="?action=account-delete&accountId=<?= $account->getId() ?>" >Supprimer</a>
-    <a href="?action=account-showFor">Retour à la liste</a>
+    <a class="btn-list" href="" onclick="document.getElementById('account-saveEdit').submit(); return false;">Modifier le compte</a>
+    <a class="btn-list" onclick="return confirm('Etes vous sur de vouloir supprimer le compte ?');" href="?action=account-delete&accountId=<?= $account->getId() ?>" >Supprimer</a>
+    <a class="btn-list" href="?action=account-showFor">Retour à la liste</a>
 </main>
 
 <?php require_once __DIR__ . '/../templates/footer.php';

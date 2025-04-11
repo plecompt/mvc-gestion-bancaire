@@ -31,8 +31,8 @@
             </select>
         </div><br>
     </form>
-    <a href="" onclick="document.getElementById('contract-saveCreate').submit(); return false;">Créer le contrat</a>
-    <a href="?action=contract-showFor">Retour à la liste</a>
+    <a class="btn-list" onclick="document.getElementById('contract-saveCreate').submit(); return false;">Créer le contrat</a>
+    <a class="btn-list" href="?action=contract-showFor">Retour à la liste</a>
 </main>
 
 <?php require_once __DIR__ . '/../templates/footer.php';

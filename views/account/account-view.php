@@ -11,8 +11,8 @@
         <p><strong>Type : </strong> <?= $account->getAccountType() ?></p>
     </div>
     <div class="flex-center">
-        <a href="?action=account-edit&accountId=<?= $account->getId() ?>">Modifier le compte</a>
-        <a href="?action=account-showFor">Retour à la liste</a>
+        <a class="btn-list" href="?action=account-edit&accountId=<?= $account->getId() ?>">Modifier le compte</a>
+        <a class="btn-list" href="?action=account-showFor">Retour à la liste</a>
     </div>
 </main>
 

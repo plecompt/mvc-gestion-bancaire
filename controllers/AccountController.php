@@ -7,19 +7,20 @@ require_once __DIR__ . '/../lib/utils.php';
 class AccountController
 {
     private AccountRepository $accountRepository;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
         $this->accountRepository = new AccountRepository();
+        $this->userRepository = new UserRepository();
     }
     public function show($accountId)
     {
         Utils::checkAdmin("Location: ?action=404");
 
         if (isset($accountId) && is_numeric($accountId))
-            $userRepository = new UserRepository();
             $account = $this->accountRepository->getAccount($accountId);
-            $user = $userRepository->getUser($account->getUserId());
+            $user = $this->userRepository->getUser($account->getUserId());
         if (isset($account)) {
             require_once __DIR__ . '/../views/account/account-view.php';
         } else {
@@ -35,6 +36,7 @@ class AccountController
             $accounts = $this->accountRepository->getAccounts($userId);
         } else {
             $accounts = $this->accountRepository->getAccounts(null);
+            $users = $this->userRepository->getUsers();
         }
         require_once __DIR__ . '/../views/account/account-list.php';
     }
@@ -42,10 +44,8 @@ class AccountController
     public function create()
     {
         Utils::checkAdmin("Location: ?action=404");
-
-        //it's dirty
-        $userRepo = new UserRepository();
-        $users = $userRepo->getUsers();
+        
+        $users = $this->userRepository->getUsers();
 
         require_once __DIR__ . "/../views/account/account-create.php";
     }
@@ -75,10 +75,8 @@ class AccountController
         Utils::checkAdmin("Location: ?action=404");
 
         if (isset($accountId) && is_numeric($accountId)){
-            //dirty
-            $userRepository = new UserRepository();
             $account = $this->accountRepository->getAccount($accountId);
-            $user = $userRepository->getUser($account->getUserId());
+            $user = $this->userRepository->getUser($account->getUserId());
         }
         if (isset($account)) {
             require_once __DIR__ . '/../views/account/account-edit.php';

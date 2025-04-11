@@ -7,10 +7,12 @@ require_once __DIR__ . '/../lib/utils.php';
 class ContractController
 {
     private ContractRepository $contractRepository;
+    private UserRepository $userRepository;
 
     public function __construct()
     {
         $this->contractRepository = new ContractRepository();
+        $this->userRepository = new UserRepository();
     }
 
     public function show(int $contractId)
@@ -18,10 +20,8 @@ class ContractController
         Utils::checkAdmin("Location: ?action=404");
 
         if (isset($contractId) && is_numeric($contractId)) {
-            //dirty
-            $userRepository = new UserRepository();
             $contract = $this->contractRepository->getContract($contractId);
-            $user = $userRepository->getUser($contract->getUserId());
+            $user = $this->userRepository->getUser($contract->getUserId());
         }
         if (isset($contract)) {
             require_once __DIR__ . '/../views/contract/contract-view.php';
@@ -38,6 +38,7 @@ class ContractController
             $contracts = $this->contractRepository->getContracts($userId);
         } else {
             $contracts = $this->contractRepository->getContracts(null);
+            $users = $this->userRepository->getUsers();
         }
 
         require_once __DIR__ . '/../views/contract/contract-list.php';
@@ -79,10 +80,8 @@ class ContractController
         Utils::checkAdmin("Location: ?action=404");
 
         if (isset($contractId) && is_numeric($contractId)) {
-            //dirty
-            $userRepository = new UserRepository();
             $contract = $this->contractRepository->getContract($contractId);
-            $user = $userRepository->getUser($contract->getUserId());
+            $user = $this->userRepository->getUser($contractId);
         }
         if (isset($contract)) {
             require_once __DIR__ . '/../views/contract/contract-edit.php';

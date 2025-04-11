@@ -2,7 +2,7 @@
 
 <main class="flex-center">
     <h1>Créer un utilisateur</h1>
-    <form action="?action=user-saveCreate" method="POST" id="user-saveCreate" class="flex-center">
+    <form action="?action=user-saveCreate" method="POST" id="user-saveCreate">
         <div>
             <label for="lastName" class="form-label">Nom: </label>
             <input type="text" class="form-control" id="lastName" name="lastName" required>
@@ -24,8 +24,8 @@
             <input type="text" class="form-control" id="address" name="address">
         </div><br>
     </form>
-    <a href="" onclick="document.getElementById('user-saveCreate').submit(); return false;">Créer l'utilisateur</a>
-    <a href="?action=user-showAll">Retour à la liste</a>
+    <a class="btn-list" onclick="document.getElementById('user-saveCreate').submit(); return false;">Créer l'utilisateur</a>
+    <a class="btn-list" href="?action=user-showAll">Retour à la liste</a>
 </main>
 
 <?php require_once __DIR__ . '/../templates/footer.php';

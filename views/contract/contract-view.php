@@ -11,8 +11,8 @@
         <p><strong>Durée du contrat : </strong> <?= $contract->getDuration() ?></p>
     </div>
     <div class="flex-center">
-    <a href="?action=contract-edit&contractId=<?= $contract->getId() ?>">Modifier le contrat</a>
-    <a href="?action=contract-showFor">Retour à la liste</a>
+    <a class="btn-list" href="?action=contract-edit&contractId=<?= $contract->getId() ?>">Modifier le contrat</a>
+    <a class="btn-list" href="?action=contract-showFor">Retour à la liste</a>
     </div>
 </main>
 

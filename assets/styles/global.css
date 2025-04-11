@@ -10,7 +10,8 @@
     --green: #00ff00;
     --dark-green: #008f11;
     --black: #000000;
-    --text: #ccffcc;
+    /* --text: #ccffcc; */
+    --text: #93d893;
 }
 
 .flex-center{
@@ -18,7 +19,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 5vh;
 }
 
 .flex-left{
@@ -51,7 +52,18 @@ button, .btn-neon {
     transition: all 0.3s;
 }
 
-button:hover, .btn-neon:hover {
+.btn-list {
+    background-color: transparent;
+    color: var(--text);
+    text-shadow: 0 0 5px var(--green);
+    border: 1px solid var(--text);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+button:hover, .btn-neon:hover, .btn-list:hover {
     background-color: var(--dark-green);
     color: var(--black);
     box-shadow: 0 0 8px var(--green);
@@ -64,6 +76,10 @@ input, textarea, select {
     color: var(--text);
     padding: 8px;
     border-radius: 4px;
+}
+
+select:focus {
+    background-color: black;
 }
 
 /* Tables */
