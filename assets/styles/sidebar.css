@@ -1,18 +1,18 @@
  /* The side navigation menu */
  .side-bar {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0; /* Stay at the top */
+    height: 100%; 
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
     left: 0;
     background-color: #000000;
-    overflow-x: hidden; /* Disable horizontal scroll */
+    overflow-x: hidden; 
     justify-content: space-evenly;
     align-items: flex-start;
   }
   
-  /* The navigation menu links */
+  /* Links*/
   .side-bar a {
     text-decoration: none;
     font-size: 17px;
@@ -22,6 +22,7 @@
     cursor: pointer;
   }
 
+  /* sub group */
   .sidebar-group-user, .sidebar-group-account, .sidebar-group-contract {
     flex: 1;
     align-items: flex-start;
@@ -29,12 +30,12 @@
     gap: 10px;
   }
 
+  /* divider */
   .sidebar-group-account {
     border-bottom: 1px solid var(--dark-green);
     border-top: 1px solid var(--dark-green);
   }
   
-  /* When you mouse over the navigation links, change their color */
   .side-bar a:hover {
     color: #f1f1f1;
   }

@@ -10,7 +10,6 @@
     --green: #00ff00;
     --dark-green: #008f11;
     --black: #000000;
-    /* --text: #ccffcc; */
     --text: #93d893;
 }
 
@@ -93,9 +92,4 @@ th, td {
     text-align: center;
     vertical-align: middle;
     padding: 8px;
-}
-
-/* Media Query */
-@media (max-width: 750px) {
-
 }

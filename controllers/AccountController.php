@@ -18,9 +18,10 @@ class AccountController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (isset($accountId) && is_numeric($accountId))
+        if (isset($accountId) && is_numeric($accountId)){
             $account = $this->accountRepository->getAccount($accountId);
             $user = $this->userRepository->getUser($account->getUserId());
+        }
         if (isset($account)) {
             require_once __DIR__ . '/../views/account/account-view.php';
         } else {
@@ -54,8 +55,7 @@ class AccountController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (isset($_SESSION['userId']) && is_numeric($_SESSION['userId']) && 
-        Utils::checkValidIban($_POST['iban']) && Utils::checkValidAddress($_POST['balance'])) {
+        if (isset($_SESSION['userId']) && is_numeric($_SESSION['userId']) && Utils::checkValidIban($_POST['iban']) && Utils::checkValidAddress($_POST['balance'])) {
             $account = new Account(
                 $_SESSION['userId'],
                 0,
@@ -89,8 +89,7 @@ class AccountController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (isset($_SESSION['userId']) && is_numeric($_SESSION['userId']) && 
-        Utils::checkValidIban($_POST['iban']) && Utils::checkValidAddress($_POST['balance'])){
+        if (isset($_SESSION['userId']) && is_numeric($_SESSION['userId']) && Utils::checkValidIban($_POST['iban']) && Utils::checkValidAddress($_POST['balance'])){
             $account = new Account(
                 $_SESSION['userId'],
                 $_SESSION['accountId'],

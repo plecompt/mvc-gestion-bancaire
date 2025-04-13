@@ -17,4 +17,3 @@
             return self::from($contractType);
         }
     }
-?>

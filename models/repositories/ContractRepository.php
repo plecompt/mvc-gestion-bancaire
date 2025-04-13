@@ -22,15 +22,7 @@ class ContractRepository
             return null;
         }
 
-        $contract = new Contract(
-            $result['user_id'], 
-            $result['contract_id'], 
-            $result['contract_type'], 
-            $result['contract_cost'], 
-            $result['contract_duration']
-        );
-
-        return $contract;
+        return new Contract($result['user_id'], $result['contract_id'], $result['contract_type'], $result['contract_cost'], $result['contract_duration']);
     }
 
     public function getContracts(?int $userId = null): ?array

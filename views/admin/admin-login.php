@@ -3,12 +3,12 @@
 <main class="flex-center">
     <form action="?action=admin-doLogin" method="POST" class="flex-center">
         <div class="form-group">
-            <label>Email :</label>
+            <label for="email">Email :</label>
             <!-- For the purpose of the exercice, providing email in the input -->
             <input class="form-control" type="text" name="email" placeholder="admin@banque.fr" value="admin@banque.fr" required>
         </div>
         <div class="form-group">
-            <label>Mot de passe :</label>
+            <label for="password">Mot de passe :</label>
             <!-- For the purpose of the exercice, providing password in the input -->
             <input class="form-control" type="password" name="password" placeholder="admin1234" value="admin1234" required>
         </div>

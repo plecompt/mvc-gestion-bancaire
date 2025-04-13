@@ -22,16 +22,7 @@ class UserRepository
             return null;
         }
 
-        $user = new User(
-            $result['user_id'],
-            $result['user_firstName'],
-            $result['user_lastName'],
-            $result['user_email'],
-            $result['user_phone'],
-            $result['user_address']
-        );
-
-        return $user;
+        return new User($result['user_id'],$result['user_firstName'],$result['user_lastName'],$result['user_email'],$result['user_phone'],$result['user_address']);
     }
 
     public function getUsers(): ?array

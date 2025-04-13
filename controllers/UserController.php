@@ -14,11 +14,11 @@ class UserController
     public function __construct()
     {
         $this->userRepository = new UserRepository();
-        $this->contractRepository = new ContractRepository();	
+        $this->contractRepository = new ContractRepository();
         $this->accountRepository = new AccountRepository();
     }
     
-    public function show($userId) 
+    public function show($userId)
     {
         Utils::checkAdmin("Location: ?action=404");
 
@@ -54,14 +54,13 @@ class UserController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (Utils::checkValidFirstName($_POST['firstName']) && Utils::checkValidLastName($_POST['lastName']) && 
-        Utils::checkValidEmail($_POST['email']) && Utils::checkValidAddress($_POST['address'])){
+        if (Utils::checkValidFirstName($_POST['firstName']) && Utils::checkValidLastName($_POST['lastName']) && Utils::checkValidEmail($_POST['email']) && Utils::checkValidAddress($_POST['address'])){
             $user = new User(
                 0,
-                $_POST['firstName'], 
-                $_POST['lastName'], 
-                $_POST['email'], 
-                $_POST['phone'], 
+                $_POST['firstName'],
+                $_POST['lastName'],
+                $_POST['email'],
+                $_POST['phone'],
                 $_POST['address']
             );
             $this->userRepository->saveCreate($user);
@@ -75,8 +74,9 @@ class UserController
     {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (isset($userId) && is_numeric($userId))
+        if (isset($userId) && is_numeric($userId)){
             $user = $this->userRepository->getUser($userId);
+        }
         if (isset($user)) {
             require_once __DIR__ . '/../views/user/user-edit.php';
         } else {
@@ -86,17 +86,16 @@ class UserController
     }
 
     public function saveEdit()
-    {   
+    {
         Utils::checkAdmin("Location: ?action=404");
 
-        if (Utils::checkValidFirstName($_POST['firstName']) && Utils::checkValidLastName($_POST['lastName']) && 
-        Utils::checkValidEmail($_POST['email']) && Utils::checkValidPhone($_POST['phone']) && Utils::checkValidAddress($_POST['address'])){
+        if (Utils::checkValidFirstName($_POST['firstName']) && Utils::checkValidLastName($_POST['lastName']) && Utils::checkValidEmail($_POST['email']) && Utils::checkValidPhone($_POST['phone']) && Utils::checkValidAddress($_POST['address'])){
             $user = new User(
                 $_SESSION['userId'],
-                $_POST['firstName'], 
-                $_POST['lastName'], 
-                $_POST['email'], 
-                $_POST['phone'], 
+                $_POST['firstName'],
+                $_POST['lastName'],
+                $_POST['email'],
+                $_POST['phone'],
                 $_POST['address']
             );
             $this->userRepository->update($user);

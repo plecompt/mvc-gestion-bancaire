@@ -48,7 +48,7 @@ switch ($action) {
     case 'account-saveEdit':
         $accountController->saveEdit(); //save the current edition of account in database
         break;
-    case 'account-delete': 
+    case 'account-delete':
         $accountController->delete($accountId); //delete the given account
         break;
     case 'contract-show':
@@ -69,7 +69,7 @@ switch ($action) {
     case 'contract-saveEdit':
         $contractController->saveEdit(); //save the current edition of contract in database
         break;
-    case 'contract-delete': 
+    case 'contract-delete':
         $contractController->delete($contractId); //delete the given contract
         break;
     case 'user-show':
@@ -90,7 +90,7 @@ switch ($action) {
     case 'user-saveEdit':
         $userController->saveEdit(); //save the current edition of user in database
         break;
-    case 'user-delete': 
+    case 'user-delete':
         $userController->delete($userId); //delete the given user
         break;
     case 'home':

@@ -13,7 +13,7 @@ class AdminController
     }
     public function login()
     {
-        require __DIR__ . '/../views/admin/admin-login.php';
+        require_once __DIR__ . '/../views/admin/admin-login.php';
     }
 
     public function doLogin()

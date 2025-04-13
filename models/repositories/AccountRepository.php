@@ -22,9 +22,7 @@ class AccountRepository
             return null;
         }
 
-        $account = new Account($result['user_id'], $result['account_id'], $result['account_iban'], $result['account_balance'], $result['account_type']);
-
-        return $account;
+        return new Account($result['user_id'], $result['account_id'], $result['account_iban'], $result['account_balance'], $result['account_type']);
     }
 
     public function getAccounts(?int $userId = null): ?array

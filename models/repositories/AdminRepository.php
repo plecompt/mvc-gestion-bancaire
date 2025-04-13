@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../../lib/database.php';
 require_once __DIR__ . '/../Admin.php';
 
-class AdminRepository 
+class AdminRepository
 {
     public DatabaseConnection $connection;
 
